@@ -19,12 +19,6 @@ print("Number of merged rows:", len(nepal_districts))
 
 # Convert the merged GeoDataFrame to GeoJSON.
 nepal_geojson = nepal_districts.to_json()
-# Districts in shapefile but not in CSV
-shapefile_districts = set(nepal_districts['NAME_3'])
-csv_districts = set(pop_data['District'])
-print("Districts in shapefile but missing in CSV:", shapefile_districts - csv_districts)
-print("Districts in CSV but missing in shapefile:", csv_districts - shapefile_districts)
-
 
 # Create a Folium map centered on Nepal.
 m = folium.Map(location=[28.3949, 84.1240], zoom_start=7)
@@ -46,6 +40,6 @@ folium.Choropleth(
 folium.LayerControl().add_to(m)
 
 # Save the map to an HTML file.
-#m.save('nepal_population_heatmap.html')
+m.save('nepal_population_heatmap.html')
 
 print("Map has been saved as 'nepal_population_heatmap.html'")
