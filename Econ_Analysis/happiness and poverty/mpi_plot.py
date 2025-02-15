@@ -19,7 +19,7 @@ df_raw.reset_index(drop=True, inplace=True)
 # -----------------------------
 # We'll look for a row containing "Country" and "MPI" (or partial matches).
 # Adjust as needed if your file uses different keywords (like "Multidimensional poverty index").
-required_keywords = ["Country", "MPI"]  # minimal set
+required_keywords = ["Country", "Multidimensional poverty"]  # minimal set
 
 header_row_index = None
 for i in range(len(df_raw)):
@@ -94,7 +94,7 @@ if "Country" not in df.columns:
 df_filtered = df[df["Country"].isin(countries_of_interest)].copy()
 
 # Ensure MPI column is present
-if "MPI" not in df_filtered.columns:
+if "Multidimensional poverty" not in df_filtered.columns:
     raise KeyError("Could not find a column named 'MPI'. Adjust rename logic accordingly.")
 
 # Convert numeric columns to float (if they are strings)
