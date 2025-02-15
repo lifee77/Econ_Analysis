@@ -55,7 +55,7 @@ plt.title("Trends of Gini Index Across Countries")
 plt.xlabel("Year")
 plt.ylabel("Gini Index")
 # Adding labels for specific countries
-countries_to_label = ["Nepal", "United States", "India", "China", "Brazil", "Germany"]
+countries_to_label = ["Nepal", "United States", "India", "China", "Brazil", "Germany", "South Korea"]
 for country in countries_to_label:
     country_data = gini_long[gini_long["Country Name"] == country]
     if not country_data.empty:
